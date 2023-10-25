@@ -1,5 +1,6 @@
 import Listing from '../models/listing.model.js'
 import { errorHandler } from '../utils/error.js'
+
 export const createListing = async (req, res, next) => {
   try {
     const listing = await Listing.create(req.body)
@@ -94,7 +95,6 @@ export const getListings = async (req, res, next) => {
     const sort = req.query.sort || 'createdAt'
 
     const order = req.query.order || 'desc'
-    console.log(order)
 
     const listings = await Listing.find({
       name: { $regex: searchTerm, $options: 'i' },
