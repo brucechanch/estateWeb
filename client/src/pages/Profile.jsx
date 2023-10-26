@@ -47,6 +47,7 @@ export default function Profile() {
     const fileName = new Date().getTime() + file.name;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, file);
+    console.log(uploadTask)
 
     uploadTask.on(
       'state_changed',
